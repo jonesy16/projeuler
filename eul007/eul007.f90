@@ -8,15 +8,16 @@
 !************************************************************
 program primefind
   implicit none
-  integer*4 ::  i, numprimes, lastprime, testnum, targetnum=10001
+  integer*4 ::  i, numprimes, lastprime, testnum, targetnum=10001, upperlim
   testnum=3
   numprimes=2
   do 
     testnum=testnum+2
-    do i=3, testnum/2, 2
+    upperlim=sqrt(real(testnum))
+    do i=3, upperlim, 2
       if ( mod(testnum,i) == 0 ) exit
     end do
-    if ( i >= testnum/2 ) then
+    if ( i > upperlim ) then
       lastprime=testnum
       numprimes=numprimes+1
     end if
