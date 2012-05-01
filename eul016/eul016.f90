@@ -15,10 +15,8 @@ program largedigitsum
   PowerNumber(:)=0
   PowerNumber(1)=1
   do i=1, 1000
-    do j=1, maxIndex
-      PowerNumber(j)=PowerNumber(j)*2
-    end do
-    if ( PowerNumber(1) > 100000 ) then
+    PowerNumber(:)=PowerNumber(:)*2
+    if ( PowerNumber(1) > 100000 .or. i == 1000 ) then
       do j=1, arraysize
         numTens= powerNumber(j)/10
         powerNumber(j)=mod(powerNumber(j),10)
